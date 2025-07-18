@@ -59,3 +59,18 @@ where state NOT IN   ( 'SP')
 select city
 from temp_tables.regions
 where city ilike 'z%'
+
+--Liste os e-mails dos clientes que usam domínio do Gmail ou Outlook. 
+
+select email, STATE
+from sales.customers
+where email ilike '%gmail%' OR EMAIL ILIKE '%outlook%'
+
+
+--Mostre quantos clientes existem em cada estado.
+SELECT 
+  state, 
+  COUNT(*) AS quantidade_de_clientes
+FROM sales.customers
+GROUP BY state
+ORDER BY quantidade_de_clientes DESC;
